@@ -26,10 +26,21 @@ class Crafty_Theme {
 	}
 
 	/**
+	 * @param array $args
+	 *
+	 * @return array
+	 */
+	public function get_posts( $args = array() ) {
+		return Post::query( $args );
+	}
+
+	/**
 	 *
 	 */
 	public function load_dependencies() {
-		var_dump( realpath( dirname( __FILE__ ) . '/../' ) . '/views/' );
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/vendor/autoload.php' );
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/post.class.php' );
+
 		$this->mustache = new Mustache_Engine( array(
 			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.html' ) )
 		) );
