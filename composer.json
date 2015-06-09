@@ -1,0 +1,14 @@
+{
+  "name": "marcusrognes/crafty",
+  "description": "Wordpress starter theme",
+  "type":"wordpress-theme",
+  "authors": [
+    {
+      "name": "marcusrognes",
+      "email": "marcus@rognes.guru"
+    }
+  ],
+  "require": {
+    "mustache/mustache": "^2.8"
+  }
+}

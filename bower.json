@@ -1,0 +1,19 @@
+{
+  "name": "crafty",
+  "version": "0.0.0",
+  "authors": [
+    "Marcus Rognes <marcus@rognes.guru>"
+  ],
+  "description": "Wordpress starter theme",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mustache": "~2.1.0"
+  }
+}
