@@ -15,14 +15,17 @@ class Crafty_Theme {
 	 */
 	private $mustache;
 
+
 	/**
 	 *
 	 */
 	function __construct() {
 		self::$instance = $this;
 		$this->load_dependencies();
+
+
 		$this->add_actions();
-		$this->add_actions();
+		$this->add_filters();
 	}
 
 	/**
@@ -58,22 +61,71 @@ class Crafty_Theme {
 	/**
 	 *
 	 */
-	public function setup_templating() {
+	public function setup_js() {
+		$views = array(
+			'post/list' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/post/list.html',
+		);
 
+		echo $this->get_js_ready_views( $views );
+		echo '<script src="' . get_template_directory_uri() . '/static/js/mustache.min.js' . '"></script>';
+		echo '<script src="' . get_template_directory_uri() . '/static/js/crafty.js' . '"></script>';
 	}
 
 	/**
 	 *
 	 */
 	public function add_actions() {
-
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_footer', array( $this, 'setup_js' ) );
 	}
+
+
 
 	/**
 	 *
 	 */
 	public function add_filters() {
 
+	}
+
+	/**
+	 *
+	 */
+	public function enqueue_scripts() {
+		wp_enqueue_script( 'jquery' );
+	}
+
+	/**
+	 * @param array $views
+	 *
+	 * @return string
+	 */
+	public function get_js_ready_views( $views ) {
+		$data = '';
+		foreach ( $views as $name => $path ) {
+			$view = $this->get_raw_view( $path );
+			if ( ! $view ) {
+				continue;
+			}
+			$data .= '<script data-name="' . $name . '" class="mustache-view" type="x-tmpl-mustache">';
+			$data .= $view;
+			$data .= '</script>';
+		}
+
+		return $data;
+	}
+
+	/**
+	 * @param string $path
+	 *
+	 * @return string
+	 */
+	public function get_raw_view( $path = '' ) {
+		if ( ! file_exists( $path ) ) {
+			return '';
+		}
+
+		return file_get_contents( $path );
 	}
 
 
