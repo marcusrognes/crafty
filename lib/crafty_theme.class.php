@@ -64,6 +64,8 @@ class Crafty_Theme {
 	public function setup_js() {
 		$views = array(
 			'post/list' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/post/list.html',
+			'index' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/index.html',
+			'header/mobile.nav' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/header/mobile.nav.html',
 		);
 
 		echo $this->get_js_ready_views( $views );

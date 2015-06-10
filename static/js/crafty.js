@@ -12,8 +12,8 @@
                 _this.views[$(this).data('name')] = $(this).html();
             });
         }
-        this.render = function (view, args) {
-
+        this.getView = function (view, args) {
+            return Mustache.render(this.views[view], args, this.views);
         }
         this.init();
     }
@@ -21,4 +21,12 @@
 
     var crafty = new Crafty();
 
+    var view = crafty.getView('index',{
+        title:'From js!',
+        posts:[{
+            title:'Post title',
+            content:'Some post content, ready for some async stuff! :D'
+        }]
+    });
+    $('body').append(view);
 })(jQuery, window, document);
