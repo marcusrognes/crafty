@@ -66,6 +66,7 @@ class Crafty_Theme {
 			'post/list' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/post/list.html',
 			'index' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/index.html',
 			'header/mobile.nav' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/header/mobile.nav.html',
+			'style/background' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/style/background.html',
 		);
 
 		echo $this->get_js_ready_views( $views );
