@@ -15,6 +15,9 @@ class Crafty_Theme {
 	 */
 	private $mustache;
 
+	/**
+	 * @var string
+	 */
 	private $version;
 
 	/**
@@ -47,7 +50,7 @@ class Crafty_Theme {
 		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/post.class.php' );
 
 		$this->mustache = new Mustache_Engine( array(
-			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.html' ) )
+			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.ms' ) )
 		) );
 	}
 
@@ -134,8 +137,27 @@ class Crafty_Theme {
 		return file_get_contents( $path );
 	}
 
-	public function process_post( $post ){
-		return $post;
+	/**
+	 * @param $posts
+	 *
+	 * @return array
+	 */
+	public function process_posts_array( $posts ) {
+		$new_posts = array();
+		foreach ( $posts as $post ) {
+			array_push( $new_posts, $this->process_post( $post ) );
+		}
+
+		return $new_posts;
+	}
+
+	/**
+	 * @param $post WP_Post
+	 *
+	 * @return Post
+	 */
+	public function process_post( $post ) {
+		return Post::from_wp_post( $post );
 	}
 
 

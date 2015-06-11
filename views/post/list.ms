@@ -1,8 +1,8 @@
 <article>
     <h2>
-        {{ title }}
+        {{post_title}}
     </h2>
     <div>
-        {{{ content }}}
+        {{{post_content}}}
     </div>
 </article>
