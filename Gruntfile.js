@@ -18,6 +18,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'static/css/app.css': 'static/scss/app.scss',
+                    'static/css/blocking.css': 'static/scss/blocking.scss',
                     'static/css/editor-style.css': 'static/scss/editor-style.scss'
                 }
             }
@@ -30,14 +31,17 @@ module.exports = function(grunt) {
                 sourceMap: true,
             },
             dist: {
-                src: ['bower_components/modernizr/modernizr.js',
+                src: [
                     'bower_components/foundation/js/foundation.js',
                     'bower_components/foundation/js/foundation.topbar.js',
-                    // 'bower_components/foundation/js/foundation.equalizer.js',
-                    'bower_components/slick.js/slick/slick.min.js',
-                    'bower_components/jquery.countdown/dist/jquery.countdown.min.js',
+                    'bower_components/mustache/mustache.min.js',
                     'static/js/custom.js'],
                 dest: 'static/js/app.js',
+            },
+            blocking:{
+                src: ['bower_components/modernizr/modernizr.js',
+                    'static/js/blocking-custom.js'],
+                dest: 'static/js/blocking.js',
             }
         },
 
@@ -103,7 +107,6 @@ module.exports = function(grunt) {
                 files: ['static/css/**/*'],
             },
         },
-
     });
 
     // Load the Grunt Tasks

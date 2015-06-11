@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "blocking.css",
+	"sources": [
+		"../scss/blocking.scss"
+	],
+	"sourcesContent": [],
+	"mappings": ";AAAA,IAAI,CAAA;EACF,OAAO,EAAC,CAAE,GADP",
+	"names": []
+}

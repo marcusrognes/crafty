@@ -15,12 +15,14 @@ class Crafty_Theme {
 	 */
 	private $mustache;
 
+	private $version;
 
 	/**
 	 *
 	 */
 	function __construct() {
 		self::$instance = $this;
+		$this->version  = '0.0.1';
 		$this->load_dependencies();
 
 
@@ -63,15 +65,13 @@ class Crafty_Theme {
 	 */
 	public function setup_js() {
 		$views = array(
-			'post/list' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/post/list.html',
-			'index' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/index.html',
+			'post/list'         => realpath( dirname( __FILE__ ) . '/../' ) . '/views/post/list.html',
+			'index'             => realpath( dirname( __FILE__ ) . '/../' ) . '/views/index.html',
 			'header/mobile.nav' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/header/mobile.nav.html',
-			'style/background' => realpath( dirname( __FILE__ ) . '/../' ) . '/views/style/background.html',
+			'style/background'  => realpath( dirname( __FILE__ ) . '/../' ) . '/views/style/background.html',
 		);
 
 		echo $this->get_js_ready_views( $views );
-		echo '<script src="' . get_template_directory_uri() . '/static/js/mustache.min.js' . '"></script>';
-		echo '<script src="' . get_template_directory_uri() . '/static/js/crafty.js' . '"></script>';
 	}
 
 	/**
@@ -81,7 +81,6 @@ class Crafty_Theme {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_footer', array( $this, 'setup_js' ) );
 	}
-
 
 
 	/**
@@ -95,7 +94,11 @@ class Crafty_Theme {
 	 *
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'crafty-blocking', get_template_directory_uri() . '/static/js/blocking.js', array( 'jquery' ), $this->version );
+		wp_enqueue_style( 'crafty-blocking', get_template_directory_uri() . '/static/css/blocking.css', null, $this->version );
+		wp_localize_script( 'crafty-blocking', 'craftyBlocking', array(
+			'themeUri' => get_template_directory_uri()
+		) );
 	}
 
 	/**
