@@ -17,8 +17,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/app.css': 'scss/app.scss',
-                    'css/editor-style.css': 'scss/editor-style.scss'
+                    'static/css/app.css': 'static/scss/app.scss',
+                    'static/css/editor-style.css': 'static/scss/editor-style.scss'
                 }
             }
         },
@@ -36,22 +36,16 @@ module.exports = function(grunt) {
                     // 'bower_components/foundation/js/foundation.equalizer.js',
                     'bower_components/slick.js/slick/slick.min.js',
                     'bower_components/jquery.countdown/dist/jquery.countdown.min.js',
-                    'js/instafeed.min.js',
-                    'js/classie.js',
-                    'js/modules.js',
-                    'js/webfonts.js',
-                    'js/skip-link-focus-fix.js',
-                    // 'js/navigation.js',
-                    'js/custom.js'],
-                dest: 'js/app.js',
+                    'static/js/custom.js'],
+                dest: 'static/js/app.js',
             }
         },
 
         // Minify the JS files.
         uglify: {
             build: {
-                src: 'js/app.js',
-                dest: 'js/app.min.js'
+                src: 'static/js/app.js',
+                dest: 'static/js/app.min.js'
             }
         },
 
@@ -63,7 +57,7 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'bower_components/slick.js/slick/fonts/',
                         src: '**',
-                        dest: 'fonts/',
+                        dest: 'static/fonts/',
                         flatten: true,
                         filter: 'isFile',
                     },
@@ -71,7 +65,7 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'bower_components/slick.js/slick/',
                         src: 'ajax-loader.gif',
-                        dest: 'images/',
+                        dest: 'static/images/',
                         flatten: true,
                         filter: 'isFile',
                     },
@@ -88,7 +82,7 @@ module.exports = function(grunt) {
             },
 
             scripts: {
-                files: ['js/*.js'],
+                files: ['static/js/*.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     spawn: false,
@@ -96,7 +90,7 @@ module.exports = function(grunt) {
             },
 
             sass: {
-                files: ['scss/**/*.scss'],
+                files: ['static/scss/**/*.scss'],
                 tasks: ['sass']
             },
 
@@ -106,7 +100,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 },
-                files: ['css/**/*'],
+                files: ['static/css/**/*'],
             },
         },
 
