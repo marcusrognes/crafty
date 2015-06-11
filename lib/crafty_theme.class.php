@@ -134,6 +134,10 @@ class Crafty_Theme {
 		return file_get_contents( $path );
 	}
 
+	public function process_post( $post ){
+		return $post;
+	}
+
 
 	/**
 	 * @return Crafty_Theme
