@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             options: {
                 includePaths: [
                     'bower_components/foundation/scss',
-                    'bower_components/components-font-awesome/scss',
+                    'bower_components/font-awesome/scss',
                 ],
                 outputStyle: 'nested', // 'compressed',
                 imagePath: '/images/',
@@ -35,6 +35,7 @@ module.exports = function(grunt) {
                     'bower_components/foundation/js/foundation.js',
                     'bower_components/foundation/js/foundation.topbar.js',
                     'bower_components/mustache/mustache.min.js',
+                    'static/js/parts/topbar-left-flyout.js',
                     'static/js/custom.js'],
                 dest: 'static/js/app.js',
             },
@@ -73,6 +74,14 @@ module.exports = function(grunt) {
                         flatten: true,
                         filter: 'isFile',
                     },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/font-awesome/fonts/',
+                        src: '**',
+                        dest: 'static/fonts/',
+                        flatten: true,
+                        filter: 'isFile',
+                    }
                 ],
             },
         },
@@ -86,7 +95,7 @@ module.exports = function(grunt) {
             },
 
             scripts: {
-                files: ['static/js/*.js'],
+                files: ['static/js/**/*.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     spawn: false,

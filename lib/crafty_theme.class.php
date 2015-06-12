@@ -20,6 +20,8 @@ class Crafty_Theme {
 	 */
 	private $version;
 
+	private $global_args;
+
 	/**
 	 *
 	 */
@@ -60,6 +62,7 @@ class Crafty_Theme {
 	 * @param array $args
 	 */
 	public function render( $template = '', $args = array() ) {
+		$args = wp_parse_args( $args, $this->global_args );
 		echo $this->mustache->render( $template, $args );
 	}
 
@@ -82,6 +85,7 @@ class Crafty_Theme {
 	 */
 	public function add_actions() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_footer', array( $this, 'setup_js' ) );
 		add_action( 'wp_footer', array( $this, 'setup_js' ) );
 	}
 
@@ -172,5 +176,42 @@ class Crafty_Theme {
 		self::$instance = new self();
 
 		return self::$instance;
+	}
+
+	public function setup_global_args() {
+		$this->global_args['menu'] = wp_nav_menu( array( 'echo' => false ) );
+	}
+
+	public function header() {
+
+		echo '<html>';
+
+		echo '<meta charset="' . get_bloginfo( 'charset' ) . '"/>';
+		echo '<meta name="google-site-verification" content="tV4at60q4L2wDK1vZwmYCZgWfaREsx_Rr9YCjPk_ENs"/>';
+		echo '<link rel="shortcut icon" type="image/x-icon" href="' . esc_attr( get_template_directory_uri() ) . '/static/images/favicon.ico"/>';
+		echo '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . ' RSS Feed" href="' . get_bloginfo( 'rss2_url' ) . '"/>';
+		echo '<link rel="pingback" href="' . get_bloginfo( 'pingback_url' ) . '"/>';
+		echo '<title>';
+		if ( is_front_page() ) {
+			bloginfo( 'name' );
+			echo ' | ';
+			bloginfo( 'description' );
+		} else if ( is_search() ) {
+			bloginfo( 'name' );
+			echo ' |  Search Result';
+		} else {
+			global $post;
+			bloginfo( 'name' );
+			echo ' | ' . get_the_title( $post->ID );
+		}
+		echo '</title>';
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>';
+		echo '<body class="' . implode( ' ', get_body_class() ) . '">';
+		wp_head();
+	}
+
+	public function footer() {
+		wp_footer();
+		echo '</body></html>';
 	}
 }
