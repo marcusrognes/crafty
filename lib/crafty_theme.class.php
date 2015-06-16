@@ -20,6 +20,9 @@ class Crafty_Theme {
 	 */
 	private $version;
 
+	/**
+	 * @var
+	 */
 	private $global_args;
 
 	/**
@@ -29,8 +32,6 @@ class Crafty_Theme {
 		self::$instance = $this;
 		$this->version  = '0.0.1';
 		$this->load_dependencies();
-
-
 		$this->add_actions();
 		$this->add_filters();
 	}
@@ -42,18 +43,6 @@ class Crafty_Theme {
 	 */
 	public function get_posts( $args = array() ) {
 		return Post::query( $args );
-	}
-
-	/**
-	 *
-	 */
-	public function load_dependencies() {
-		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/vendor/autoload.php' );
-		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/post.class.php' );
-
-		$this->mustache = new Mustache_Engine( array(
-			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.ms' ) )
-		) );
 	}
 
 
@@ -85,7 +74,7 @@ class Crafty_Theme {
 	 */
 	public function add_actions() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'wp_footer', array( $this, 'setup_js' ) );
+		add_action( 'wp_header', array( $this, 'setup_global_args' ) );
 		add_action( 'wp_footer', array( $this, 'setup_js' ) );
 	}
 
@@ -106,39 +95,6 @@ class Crafty_Theme {
 		wp_localize_script( 'crafty-blocking', 'craftyBlocking', array(
 			'themeUri' => get_template_directory_uri()
 		) );
-	}
-
-	/**
-	 * @param array $views
-	 *
-	 * @return string
-	 */
-	public function get_js_ready_views( $views ) {
-		$data = '';
-		foreach ( $views as $name => $path ) {
-			$view = $this->get_raw_view( $path );
-			if ( ! $view ) {
-				continue;
-			}
-			$data .= '<script data-name="' . $name . '" class="mustache-view" type="x-tmpl-mustache">';
-			$data .= $view;
-			$data .= '</script>';
-		}
-
-		return $data;
-	}
-
-	/**
-	 * @param string $path
-	 *
-	 * @return string
-	 */
-	public function get_raw_view( $path = '' ) {
-		if ( ! file_exists( $path ) ) {
-			return '';
-		}
-
-		return file_get_contents( $path );
 	}
 
 	/**
@@ -165,27 +121,12 @@ class Crafty_Theme {
 	}
 
 
+
 	/**
-	 * @return Crafty_Theme
+	 * Prints the header markup and runs the wordpress wp_header()
 	 */
-	public static function get_instance() {
-		if ( isset( self::$instance ) ) {
-			return self::$instance;
-		}
-
-		self::$instance = new self();
-
-		return self::$instance;
-	}
-
-	public function setup_global_args() {
-		$this->global_args['menu'] = wp_nav_menu( array( 'echo' => false ) );
-	}
-
 	public function header() {
-
 		echo '<html>';
-
 		echo '<meta charset="' . get_bloginfo( 'charset' ) . '"/>';
 		echo '<meta name="google-site-verification" content="tV4at60q4L2wDK1vZwmYCZgWfaREsx_Rr9YCjPk_ENs"/>';
 		echo '<link rel="shortcut icon" type="image/x-icon" href="' . esc_attr( get_template_directory_uri() ) . '/static/images/favicon.ico"/>';
@@ -210,8 +151,83 @@ class Crafty_Theme {
 		wp_head();
 	}
 
+	/**
+	 * Prints the footer markup and runs the wordpress wp_footer()
+	 */
 	public function footer() {
 		wp_footer();
 		echo '</body></html>';
 	}
+
+	/**
+	 * @return Crafty_Theme
+	 */
+	public static function get_instance() {
+		if ( isset( self::$instance ) ) {
+			return self::$instance;
+		}
+
+		self::$instance = new self();
+
+		return self::$instance;
+	}
+
+
+	/**
+	 *
+	 */
+	private function load_dependencies() {
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/vendor/autoload.php' );
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/models/post.class.php' );
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/crafty_theme_js.class.php' );
+
+		$this->mustache = new Mustache_Engine( array(
+			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.ms' ) )
+		) );
+	}
+
+	/**
+	 * @param string $path
+	 *
+	 * @return string
+	 */
+	private function get_raw_view( $path = '' ) {
+		if ( ! file_exists( $path ) ) {
+			return '';
+		}
+
+		return file_get_contents( $path );
+	}
+
+	/**
+	 * @param array $views
+	 *
+	 * @return string
+	 */
+	private function get_js_ready_views( $views ) {
+		$data = '';
+		foreach ( $views as $name => $path ) {
+			$view = $this->get_raw_view( $path );
+			if ( ! $view ) {
+				continue;
+			}
+			$data .= '<script data-name="' . $name . '" class="mustache-view" type="x-tmpl-mustache">';
+			$data .= $view;
+			$data .= '</script>';
+		}
+
+		$data .= '<script>var CraftyData = ' . json_encode( $this->global_args ) . ';</script>';
+
+		return $data;
+	}
+
+	/**
+	 * Set global view variables here
+	 */
+	public function setup_global_args() {
+		$this->global_args['menu']         = wp_nav_menu( array( 'echo' => false ) );
+		$this->global_args['template_url'] = get_template_directory_uri();
+		$this->global_args['site_title']   = get_bloginfo( 'name' );
+	}
+
 }
