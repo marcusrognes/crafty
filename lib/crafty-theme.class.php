@@ -185,7 +185,7 @@ class Crafty_Theme {
 	private function load_dependencies() {
 		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/vendor/autoload.php' );
 		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/models/post.class.php' );
-		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/crafty_theme_js.class.php' );
+		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/lib/crafty-theme-js.class.php' );
 
 		$this->mustache = new Mustache_Engine( array(
 			'loader' => new Mustache_Loader_FilesystemLoader( realpath( dirname( __FILE__ ) . '/../' ) . '/views', array( 'extension' => '.ms' ) )

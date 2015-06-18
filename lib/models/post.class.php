@@ -5,13 +5,37 @@
  */
 class Post {
 
+	/**
+	 * @var
+	 */
 	public $ID;
+	/**
+	 * @var
+	 */
 	public $post_title;
+	/**
+	 * @var
+	 */
 	public $post_content;
+	/**
+	 * @var
+	 */
 	public $post_excerpt;
+	/**
+	 * @var
+	 */
 	public $post_author;
+	/**
+	 * @var
+	 */
 	public $post_date;
+	/**
+	 * @var
+	 */
 	public $post_modified;
+	/**
+	 * @var
+	 */
 	public $thumbnail;
 
 	/**
