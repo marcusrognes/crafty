@@ -6408,7 +6408,7 @@
         $(this).parent().removeClass('active');
         e.preventDefault();
         return false;
-    });
+    }).addClass('push-for-topbar');
 
 })(jQuery, window, document);
 ;

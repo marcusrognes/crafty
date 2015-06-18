@@ -4799,7 +4799,7 @@ html {
   transition: all 150ms ease-in;
   opacity: 1; }
 
-/* line 7, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+/* line 9, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
 .topbar-left-flyout {
   position: fixed;
   top: 0;
@@ -4808,21 +4808,21 @@ html {
   height: 52px;
   background: white;
   border-bottom: 1px solid #DEDFE0; }
-  /* line 15, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 17, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout .logo {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     text-align: center; }
-    /* line 21, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+    /* line 23, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
     .topbar-left-flyout .logo a {
       color: #008CBA;
       text-decoration: none;
       text-align: center;
       font-size: 150%;
       line-height: 52px; }
-  /* line 29, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 31, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout .action-menu {
     z-index: 999;
     position: absolute;
@@ -4835,7 +4835,7 @@ html {
     font-size: 150%;
     line-height: 48px;
     padding: 12px; }
-  /* line 42, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 44, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout nav {
     z-index: 999;
     position: fixed;
@@ -4846,20 +4846,21 @@ html {
     -ms-transition: all 150ms ease-out;
     -o-transition: all 150ms ease-out;
     transition: all 150ms ease-out;
-    width: 300px;
+    width: 280px;
     height: 100%;
     background: #008CBA;
     padding-top: 50px; }
-    /* line 52, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+    /* line 54, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+    .topbar-left-flyout nav h3 {
+      color: white;
+      padding-left: 30px; }
+    /* line 58, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
     .topbar-left-flyout nav ul {
-      padding: 40px; }
-      /* line 54, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+      padding: 0 40px; }
+      /* line 60, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
       .topbar-left-flyout nav ul li {
         list-style: none; }
-        /* line 56, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
-        .topbar-left-flyout nav ul li h3 {
-          color: white; }
-        /* line 59, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+        /* line 62, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
         .topbar-left-flyout nav ul li a {
           width: 100%;
           float: left;
@@ -4867,7 +4868,7 @@ html {
           padding: 5px;
           color: white;
           text-decoration: none; }
-  /* line 70, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 73, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout .overlay {
     z-index: 990;
     position: fixed;
@@ -4883,7 +4884,7 @@ html {
     transition: opacity 150ms ease-in;
     background: black;
     background: rgba(0, 0, 0, 0.8); }
-  /* line 83, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 86, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout.active nav {
     left: 0;
     -webkit-transition: all 150ms ease-in;
@@ -4891,7 +4892,7 @@ html {
     -ms-transition: all 150ms ease-in;
     -o-transition: all 150ms ease-in;
     transition: all 150ms ease-in; }
-  /* line 87, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+  /* line 90, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
   .topbar-left-flyout.active .overlay {
     opacity: 1;
     left: 0;
@@ -4901,8 +4902,12 @@ html {
     -o-transition: opacity 150ms ease-in;
     transition: opacity 150ms ease-in; }
 
-/* line 96, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+/* line 99, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
 .admin-bar .topbar-left-flyout, .admin-bar .topbar-left-flyout nav {
   top: 28px; }
+
+/* line 104, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
+.push-for-topbar {
+  padding-top: 52px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -8,16 +8,10 @@
         </a>
     </div>
     <nav>
-        <ul>
-            <li>
-                <h3>
-                    Menu
-                </h3>
-            </li>
-            <li>
-                <a href="#">Item - 1</a>
-            </li>
-        </ul>
+        <h3>
+            Menu
+        </h3>
+        {{{menu}}}
     </nav>
     <div class="overlay"></div>
 </section>

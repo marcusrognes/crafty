@@ -3,13 +3,15 @@ $topbar-left-flyout-topbar-color:white;
 $topbar-left-flyout-topbar-link-color:$primary-color;
 $topbar-left-flyout-leftbar-color:$primary-color;
 $topbar-left-flyout-leftbar-link-color:white;
+$topbar-left-flyout-leftbar-link-height:52px;
+$topbar-left-flyout-leftbar-width:280px;
 $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
 .topbar-left-flyout {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 52px;
+  height: $topbar-left-flyout-leftbar-link-height;
   background: $topbar-left-flyout-topbar-color;
   border-bottom: 1px solid #DEDFE0;
   .logo {
@@ -23,7 +25,7 @@ $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
       text-decoration: none;
       text-align: center;
       font-size: 150%;
-      line-height: 52px;
+      line-height: $topbar-left-flyout-leftbar-link-height;
     }
   }
   .action-menu {
@@ -31,8 +33,8 @@ $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
     position: absolute;
     top: 0;
     left: 0;
-    height: 52px;
-    min-width: 52px;
+    height: $topbar-left-flyout-leftbar-link-height;
+    min-width: $topbar-left-flyout-leftbar-link-height;
     color: $topbar-left-flyout-topbar-link-color;
     text-decoration: none;
     font-size: 150%;
@@ -45,21 +47,22 @@ $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
     top: 0;
     left: -320px;
     @include transition(all, 150ms, ease-out);
-    width: 300px;
+    width: $topbar-left-flyout-leftbar-width;
     height: 100%;
     background: $topbar-left-flyout-leftbar-color;
     padding-top: 50px;
+    h3{
+      color:$topbar-left-flyout-leftbar-link-color;
+      padding-left: 30px;
+    }
     ul {
-      padding: 40px;
+      padding: 0 40px;
       li {
         list-style: none;
-        h3{
-          color:$topbar-left-flyout-leftbar-link-color;
-        }
         a {
           width: 100%;
           float: left;
-          height: 52px;
+          height: $topbar-left-flyout-leftbar-link-height;
           padding: 5px;
           color: $topbar-left-flyout-leftbar-link-color;
           text-decoration: none;
@@ -96,4 +99,8 @@ $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
   .topbar-left-flyout, .topbar-left-flyout nav {
     top: 28px;
   }
+}
+
+.push-for-topbar{
+  padding-top:$topbar-left-flyout-leftbar-link-height;
 }

@@ -55,6 +55,13 @@ class Crafty_Theme {
 		echo $this->mustache->render( $template, $args );
 	}
 
+	public function get_menu( $args = array() ) {
+		ob_start();
+		wp_nav_menu( $args );
+
+		return ob_get_clean();
+	}
+
 	/**
 	 *
 	 */
@@ -119,7 +126,6 @@ class Crafty_Theme {
 	public function process_post( $post ) {
 		return Post::from_wp_post( $post );
 	}
-
 
 
 	/**
