@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains the setup and configs for the theme logic.
  *

@@ -6,8 +6,8 @@
  */
 
 /**
- * Class Crafty_Theme_Js
+ * Class Crafty_Theme_JS
  */
-class Crafty_Theme_Js{
+class Crafty_Theme_JS{
 
 }

@@ -53,7 +53,6 @@ class Post {
 		}
 	}
 
-
 	/**
 	 * @param $post WP_Post
 	 *
