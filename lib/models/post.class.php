@@ -1,40 +1,46 @@
 <?php
+/**
+ * The base 'model' that gets sendt to the view
+ *
+ * @package crafty
+ */
 
 /**
  * Class Post
+ * The base 'model' that gets sendt to the view
  */
 class Post {
 
 	/**
-	 * @var
+	 * @var int
 	 */
 	public $ID;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_title;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_content;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_excerpt;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_author;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_date;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $post_modified;
 	/**
-	 * @var
+	 * @var string
 	 */
 	public $thumbnail;
 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * The main class file.
+ *
+ * @package crafty
+ */
 
 /**
  * Class Crafty_Theme

@@ -1,4 +1,11 @@
 <?php
+/**
+ * The template / 'controller' for sending data to the view
+ *
+ * @package crafty
+ */
+
+
 global $wp_query;
 $crafty = Crafty_Theme::get_instance();
 $crafty->header();
