@@ -54,6 +54,8 @@ class Post {
 	}
 
 	/**
+	 * Returns a post from a given WP_Post
+	 *
 	 * @param $post WP_Post
 	 *
 	 * @return self
@@ -74,14 +76,10 @@ class Post {
 		return new self( $newPost );
 	}
 
-	/**
-	 * TODO: Make this revert from_wp_post
-	 */
-	public function to_wp_post() {
-
-	}
 
 	/**
+	 * Same as get_posts but returns Post[] instead of WP_Post[]
+	 *
 	 * @param array $args
 	 *
 	 * @return self[]

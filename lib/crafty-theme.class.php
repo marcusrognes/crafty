@@ -26,7 +26,7 @@ class Crafty_Theme {
 	private $version;
 
 	/**
-	 * @var
+	 * @var array
 	 */
 	private $global_args;
 
@@ -42,6 +42,8 @@ class Crafty_Theme {
 	}
 
 	/**
+	 * Same as get_posts() but converts to the correct model.
+	 *
 	 * @param array $args
 	 *
 	 * @return array
@@ -52,6 +54,8 @@ class Crafty_Theme {
 
 
 	/**
+	 * Prints the view with global and passed arguments.
+	 *
 	 * @param string $template
 	 * @param array $args
 	 */
@@ -60,6 +64,13 @@ class Crafty_Theme {
 		echo $this->mustache->render( $template, $args );
 	}
 
+	/**
+	 * Returns a wp_nav_menu as a string.
+	 *
+	 * @param array $args
+	 *
+	 * @return string
+	 */
 	public function get_menu( $args = array() ) {
 		ob_start();
 		wp_nav_menu( $args );
@@ -68,7 +79,7 @@ class Crafty_Theme {
 	}
 
 	/**
-	 *
+	 * Sets up the views that should be accessible in js.
 	 */
 	public function setup_js() {
 		$views = array(
@@ -82,7 +93,7 @@ class Crafty_Theme {
 	}
 
 	/**
-	 *
+	 * Sets up all the main theme actions.
 	 */
 	public function add_actions() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -92,14 +103,14 @@ class Crafty_Theme {
 
 
 	/**
-	 *
+	 * Sets up all the main theme filters.
 	 */
 	public function add_filters() {
 
 	}
 
 	/**
-	 *
+	 * Enqueue scripts
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'crafty-blocking', get_template_directory_uri() . '/static/js/blocking.js', array( 'jquery' ), $this->version );
@@ -110,9 +121,11 @@ class Crafty_Theme {
 	}
 
 	/**
-	 * @param $posts
+	 * Converts an array with posts to the theme post model.
 	 *
-	 * @return array
+	 * @param WP_Post[] $posts
+	 *
+	 * @return Post[]
 	 */
 	public function process_posts_array( $posts ) {
 		$new_posts = array();
@@ -124,7 +137,9 @@ class Crafty_Theme {
 	}
 
 	/**
-	 * @param $post WP_Post
+	 * Converts one wp_post to post.
+	 *
+	 * @param WP_Post $post
 	 *
 	 * @return Post
 	 */
@@ -134,7 +149,7 @@ class Crafty_Theme {
 
 
 	/**
-	 * Prints the header markup and runs the wordpress wp_header()
+	 * Prints the header markup and runs the wordpress wp_header().
 	 */
 	public function header() {
 		echo '<html>';
@@ -163,7 +178,7 @@ class Crafty_Theme {
 	}
 
 	/**
-	 * Prints the footer markup and runs the wordpress wp_footer()
+	 * Prints the footer markup and runs the wordpress wp_footer().
 	 */
 	public function footer() {
 		wp_footer();
@@ -171,6 +186,8 @@ class Crafty_Theme {
 	}
 
 	/**
+	 * Singleton method.
+	 *
 	 * @return Crafty_Theme
 	 */
 	public static function get_instance() {
@@ -185,7 +202,7 @@ class Crafty_Theme {
 
 
 	/**
-	 *
+	 * Sets up dependencies.
 	 */
 	private function load_dependencies() {
 		require_once( realpath( dirname( __FILE__ ) . '/../' ) . '/vendor/autoload.php' );
@@ -198,6 +215,8 @@ class Crafty_Theme {
 	}
 
 	/**
+	 * Gets a view as plain text.
+	 *
 	 * @param string $path
 	 *
 	 * @return string
@@ -211,6 +230,8 @@ class Crafty_Theme {
 	}
 
 	/**
+	 * Gets a view inside a set up script tag.
+	 *
 	 * @param array $views
 	 *
 	 * @return string
@@ -233,7 +254,7 @@ class Crafty_Theme {
 	}
 
 	/**
-	 * Set global view variables here
+	 * Set global view variables here.
 	 */
 	public function setup_global_args() {
 		$this->global_args['menu']         = wp_nav_menu( array( 'echo' => false ) );

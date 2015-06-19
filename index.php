@@ -5,7 +5,6 @@
  * @package crafty
  */
 
-
 global $wp_query;
 $crafty = Crafty_Theme::get_instance();
 $crafty->header();
