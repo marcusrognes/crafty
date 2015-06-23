@@ -1,7 +1,9 @@
 {{>parts/header/topbar-left-flyout}}
 
-{{#posts}}
-    {{>parts/content/page}}
-{{/posts}}
+<main class="row">
+    {{#posts}}
+        {{>parts/content/list}}
+    {{/posts}}
+</main>
 
 {{>parts/footer/basic}}

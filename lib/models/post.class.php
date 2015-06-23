@@ -45,6 +45,16 @@ class Post {
 	public $thumbnail;
 
 	/**
+	 * @var WP_User
+	 */
+	public $author;
+
+	/**
+	 * @var
+	 */
+	public $image;
+
+	/**
 	 * @param array $args
 	 */
 	function __construct( $args = array() ) {
@@ -65,13 +75,25 @@ class Post {
 		foreach ( $post as $key => $val ) {
 			$newPost[ $key ] = $val;
 		}
-		$newPost['post_title']     = apply_filters( 'the_title', $post->post_title );
-		$newPost['post_content']    = apply_filters( 'the_content', $post->post_content );
+		$newPost['post_title']    = apply_filters( 'the_title', $post->post_title );
+		$newPost['post_content']  = apply_filters( 'the_content', $post->post_content );
 		$newPost['post_excerpt']  = apply_filters( 'the_excerpt', $post->post_excerpt );
-		$newPost['post_author']  = apply_filters( 'the_author', $post->post_author );
-		$newPost['post_date']   = apply_filters( 'the_date', $post->post_date );
-		$newPost['post_modified']     = apply_filters( 'the_modified_date', $post->post_modified );
-		$newPost['guid'] = apply_filters( 'the_permalink', $post->guid );
+		$newPost['post_author']   = apply_filters( 'the_author', $post->post_author );
+		$newPost['post_date']     = apply_filters( 'the_date', $post->post_date );
+		$newPost['post_modified'] = apply_filters( 'the_modified_date', $post->post_modified );
+		$newPost['the_permalink'] = get_permalink( $post->ID );
+		$newPost['author']        = get_user_by( 'id', $newPost['post_author'] );
+		$post_thumbnail           = get_post_thumbnail_id( $post->ID );
+		if ( $post_thumbnail ) {
+			$image            = array(
+				'thumbnail' => wp_get_attachment_image_src( $post_thumbnail, 'thumbnail' )[0],
+				'small'     => wp_get_attachment_image_src( $post_thumbnail, 'small' )[0],
+				'medium'    => wp_get_attachment_image_src( $post_thumbnail, 'medium' )[0],
+				'large'     => wp_get_attachment_image_src( $post_thumbnail, 'large' )[0],
+				'full'      => wp_get_attachment_image_src( $post_thumbnail, 'full' )[0],
+			);
+			$newPost['image'] = $image;
+		}
 
 		return new self( $newPost );
 	}

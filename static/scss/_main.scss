@@ -5,6 +5,7 @@ html {
 
 body{
   >header{
+    z-index:20;
     background: $header-background;
     color:$header-color;
     hr{
@@ -15,6 +16,7 @@ body{
     }
   }
   > footer{
+    z-index:15;
     background: $footer-background;
     color:$footer-color;
     hr{
