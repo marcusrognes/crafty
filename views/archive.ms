@@ -1,6 +1,6 @@
 {{>parts/header/topbar-left-flyout}}
 
-<main class="row">
+<main class="row archive">
     {{#posts}}
         {{>parts/content/list}}
     {{/posts}}

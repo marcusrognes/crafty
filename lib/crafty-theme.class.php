@@ -14,7 +14,6 @@ class Crafty_Theme {
 	 */
 	private static $instance;
 
-
 	/**
 	 * @var Mustache_Engine
 	 */
@@ -36,9 +35,17 @@ class Crafty_Theme {
 	function __construct() {
 		self::$instance = $this;
 		$this->version  = '0.0.1';
+		$this->add_image_sizes();
+		$this->setup_global_args();
 		$this->load_dependencies();
 		$this->add_actions();
 		$this->add_filters();
+	}
+
+	public function add_image_sizes(){
+		add_image_size( 'banner-large', 1024, 140, true );
+		add_image_size( 'banner-medium', 512, 70, true );
+		add_image_size( 'banner-small', 256, 35, true );
 	}
 
 	/**
@@ -57,7 +64,7 @@ class Crafty_Theme {
 	 * Prints the view with global and passed arguments.
 	 *
 	 * @param string $template
-	 * @param array  $args
+	 * @param array $args
 	 */
 	public function render( $template = '', $args = array() ) {
 		$args = wp_parse_args( $args, $this->global_args );
@@ -260,6 +267,7 @@ class Crafty_Theme {
 		$this->global_args['menu']         = wp_nav_menu( array( 'echo' => false ) );
 		$this->global_args['template_url'] = get_template_directory_uri();
 		$this->global_args['site_title']   = get_bloginfo( 'name' );
+		$this->global_args['home_url']     = get_home_url();
 	}
 
 }

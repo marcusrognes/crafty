@@ -4823,6 +4823,48 @@ body > footer {
   body > footer * {
     color: inherit; }
 
+/* line 3, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+article h1 a {
+  color: #008CBA; }
+
+/* line 10, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+body > article > header {
+  width: 100%; }
+  /* line 12, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+  body > article > header img {
+    width: 100%; }
+
+/* line 16, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+body > article > main {
+  padding-top: 100px; }
+
+/* line 19, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+body > article > footer {
+  width: 100%;
+  padding-bottom: 100px; }
+
+/* line 25, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+main > article {
+  margin-top: 50px; }
+  /* line 27, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+  main > article img {
+    width: 100%; }
+  /* line 30, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_articles.scss */
+  main > article:last-child {
+    margin-bottom: 50px; }
+
+/* line 1, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_sharing.scss */
+#share-buttons img {
+  width: 35px;
+  padding: 5px;
+  border: 0;
+  box-shadow: 0;
+  display: inline; }
+
+/* line 8, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_sharing.scss */
+#share-buttons a {
+  text-decoration: none; }
+
 /* line 9, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
 .topbar-left-flyout {
   position: fixed;
@@ -4932,6 +4974,6 @@ body > footer {
 
 /* line 104, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
 .push-for-topbar {
-  padding-top: 52px; }
+  padding-top: 48px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -39,6 +39,7 @@ class Post {
 	 * @var string
 	 */
 	public $post_modified;
+
 	/**
 	 * @var string
 	 */
@@ -50,7 +51,7 @@ class Post {
 	public $author;
 
 	/**
-	 * @var
+	 * @var array
 	 */
 	public $image;
 
@@ -82,22 +83,22 @@ class Post {
 		$newPost['post_date']     = apply_filters( 'the_date', $post->post_date );
 		$newPost['post_modified'] = apply_filters( 'the_modified_date', $post->post_modified );
 		$newPost['the_permalink'] = get_permalink( $post->ID );
+		$newPost['guid']          = get_permalink( $post->ID );
 		$newPost['author']        = get_user_by( 'id', $newPost['post_author'] );
 		$post_thumbnail           = get_post_thumbnail_id( $post->ID );
 		if ( $post_thumbnail ) {
-			$image            = array(
-				'thumbnail' => wp_get_attachment_image_src( $post_thumbnail, 'thumbnail' )[0],
-				'small'     => wp_get_attachment_image_src( $post_thumbnail, 'small' )[0],
-				'medium'    => wp_get_attachment_image_src( $post_thumbnail, 'medium' )[0],
-				'large'     => wp_get_attachment_image_src( $post_thumbnail, 'large' )[0],
-				'full'      => wp_get_attachment_image_src( $post_thumbnail, 'full' )[0],
-			);
+			$image_sizes = get_intermediate_image_sizes();
+			$image       = array();
+			foreach ( $image_sizes as $key => $size ) {
+				$image = array_merge( $image, array( $size => wp_get_attachment_image_src( $post_thumbnail, $size )[0] ) );
+			}
 			$newPost['image'] = $image;
+		}else{
+			$newPost['image'] = false;
 		}
 
 		return new self( $newPost );
 	}
-
 
 	/**
 	 * Same as get_posts but returns Post[] instead of WP_Post[]
@@ -115,5 +116,4 @@ class Post {
 
 		return $posts;
 	}
-
 }

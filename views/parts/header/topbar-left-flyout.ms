@@ -3,7 +3,7 @@
         <span><i class="fa fa-bars"></i></span>
     </a>
     <div class="logo">
-        <a href="#">
+        <a href="{{home_url}}">
             Crafty!
         </a>
     </div>

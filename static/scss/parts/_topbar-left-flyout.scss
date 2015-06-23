@@ -102,5 +102,5 @@ $topbar-left-flyout-overlay-color:rgba(0,0,0,0.8);
 }
 
 .push-for-topbar{
-  padding-top:$topbar-left-flyout-leftbar-link-height;
+  padding-top:$topbar-left-flyout-leftbar-link-height - 4;
 }
