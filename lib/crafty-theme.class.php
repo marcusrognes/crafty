@@ -57,7 +57,7 @@ class Crafty_Theme {
 	 * Prints the view with global and passed arguments.
 	 *
 	 * @param string $template
-	 * @param array $args
+	 * @param array  $args
 	 */
 	public function render( $template = '', $args = array() ) {
 		$args = wp_parse_args( $args, $this->global_args );
