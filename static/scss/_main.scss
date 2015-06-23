@@ -1,8 +1,27 @@
-html{
-  -webkit-transition: all $fast-easing ease-in;
-  -moz-transition: all $fast-easing ease-in;
-  -ms-transition: all $fast-easing ease-in;
-  -o-transition: all $fast-easing ease-in;
-  transition: all $fast-easing ease-in;
-  opacity:1;
+html {
+  @include transition(all, 150ms, ease-in);
+  opacity: 1;
+}
+
+body{
+  >header{
+    background: $header-background;
+    color:$header-color;
+    hr{
+      border-color:$header-color;
+    }
+    *{
+      color:inherit;
+    }
+  }
+  > footer{
+    background: $footer-background;
+    color:$footer-color;
+    hr{
+      border-color:$footer-color;
+    }
+    *{
+      color:inherit;
+    }
+  }
 }

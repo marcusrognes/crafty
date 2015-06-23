@@ -4799,6 +4799,28 @@ html {
   transition: all 150ms ease-in;
   opacity: 1; }
 
+/* line 7, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+body > header {
+  background: white;
+  color: black; }
+  /* line 10, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+  body > header hr {
+    border-color: black; }
+  /* line 13, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+  body > header * {
+    color: inherit; }
+
+/* line 17, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+body > footer {
+  background: #1f1f1f;
+  color: #7b7b7b; }
+  /* line 20, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+  body > footer hr {
+    border-color: #7b7b7b; }
+  /* line 23, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/_main.scss */
+  body > footer * {
+    color: inherit; }
+
 /* line 9, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_topbar-left-flyout.scss */
 .topbar-left-flyout {
   position: fixed;

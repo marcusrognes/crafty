@@ -1,4 +1,4 @@
-<section class="topbar-left-flyout">
+<header class="topbar-left-flyout">
     <a href="#" class="action-menu">
         <span><i class="fa fa-bars"></i></span>
     </a>
@@ -14,4 +14,4 @@
         {{{menu}}}
     </nav>
     <div class="overlay"></div>
-</section>
+</header>
