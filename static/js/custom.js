@@ -19,10 +19,6 @@
 
     var crafty = new Crafty();
 
-    $('.basic-slider').unslider({
-        keys: true,
-        dots: true,
-        fluid: true
-    });
+    $('.basic-slider').slick();
 
 })(jQuery, window, document);

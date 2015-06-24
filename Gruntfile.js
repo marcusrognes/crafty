@@ -9,6 +9,7 @@ module.exports = function(grunt) {
                 includePaths: [
                     'bower_components/foundation/scss',
                     'bower_components/font-awesome/scss',
+                    'bower_components/slick-carousel/slick',
                 ],
                 outputStyle: 'nested', // 'compressed',
                 imagePath: '/images/',
@@ -35,9 +36,7 @@ module.exports = function(grunt) {
                     'bower_components/foundation/js/foundation.js',
                     'bower_components/foundation/js/foundation.topbar.js',
                     'bower_components/mustache/mustache.min.js',
-                    'bower_components/jquery.event.move/js/jquery.event.move.js',
-                    'bower_components/jquery.event.swipe/js/jquery.event.swipe.js',
-                    'bower_components/unslider/src/unslider.js',
+                    'bower_components/slick-carousel/slick/slick.min.js',
                     'static/js/parts/topbar-left-flyout.js',
                     'static/js/custom.js'],
                 dest: 'static/js/app.js',
@@ -63,7 +62,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'bower_components/slick.js/slick/fonts/',
+                        cwd: 'bower_components/slick.js/slick-carousel/slick/fonts/',
                         src: '**',
                         dest: 'static/fonts/',
                         flatten: true,
@@ -71,7 +70,7 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'bower_components/slick.js/slick/',
+                        cwd: 'bower_components/slick-carousel/slick/',
                         src: 'ajax-loader.gif',
                         dest: 'static/images/',
                         flatten: true,

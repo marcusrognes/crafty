@@ -16,7 +16,6 @@
   "dependencies": {
     "mustache": "~2.1.0",
     "foundation": "~5.5.2",
-    "unslider": "~1.0.0",
-    "jquery.event.swipe": "~0.5.4"
+    "slick-carousel": "~1.5.5"
   }
 }
