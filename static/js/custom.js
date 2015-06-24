@@ -3,7 +3,6 @@
 
     "use strict";
 
-
     var Crafty = function () {
         this.views = [];
         this.init = function () {
@@ -16,10 +15,14 @@
             return Mustache.render(this.views[view], args, this.views);
         };
         this.init();
-    }
-
+    };
 
     var crafty = new Crafty();
 
+    $('.basic-slider').unslider({
+        keys: true,
+        dots: true,
+        fluid: true
+    });
 
 })(jQuery, window, document);

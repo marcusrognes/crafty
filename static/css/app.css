@@ -4976,4 +4976,26 @@ main > article {
 .push-for-topbar {
   padding-top: 48px; }
 
+/* line 1, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+.basic-slider {
+  overflow: auto;
+  position: relative; }
+  /* line 4, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+  .basic-slider li {
+    list-style: none; }
+  /* line 7, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+  .basic-slider ul {
+    margin: 0; }
+    /* line 9, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+    .basic-slider ul li {
+      float: left; }
+      /* line 11, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+      .basic-slider ul li img {
+        width: 100%; }
+      /* line 14, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+      .basic-slider ul li h2 {
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+
 /*# sourceMappingURL=app.css.map */

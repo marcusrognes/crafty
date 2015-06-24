@@ -1,0 +1,21 @@
+.basic-slider{
+  overflow:auto;
+  position:relative;
+  li{
+    list-style: none;
+  }
+  ul{
+    margin:0;
+    li{
+      float:left;
+      img{
+        width:100%;
+      }
+      h2{
+        position:absolute;
+        bottom:0;
+        left:0;
+      }
+    }
+  }
+}

@@ -17,6 +17,7 @@
             <h4>
                 Posted on: {{post_date}} | By: {{author.display_name}}
             </h4>
+            <hr>
             {{{post_content}}}
         </main>
         <footer class="row">
