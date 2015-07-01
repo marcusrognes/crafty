@@ -1,9 +1,6 @@
-<div class="basic-slider slick">
+<div class="basic-slider slick slick-slider">
     {{#slider}}
-        <div>
-            {{#image}}
-                <img src="{{banner-large}}"/>
-            {{/image}}
+        <div style="{{#image}} background:url({{banner-large}}) no-repeat center top; {{/image}}">
             <h2>
                 <a href="{{the_permalink}}">
                     {{post_title}}

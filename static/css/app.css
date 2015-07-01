@@ -5065,23 +5065,179 @@ main > article {
     height: auto;
     border: 1px solid transparent; }
 
+/* Slider */
+/* line 40, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-loading .slick-list {
+  background: #fff url("./ajax-loader.gif") center center no-repeat; }
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url("../fonts/slick.eot");
+  src: url("../fonts/slick.eot?#iefix") format("embedded-opentype"), url("../fonts/slick.woff") format("woff"), url("../fonts/slick.ttf") format("truetype"), url("../fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Arrows */
+/* line 59, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  border: none;
+  outline: none; }
+  /* line 74, bower_components/slick-carousel/slick/slick-theme.scss */
+  .slick-prev:hover,
+  .slick-prev:focus,
+  .slick-next:hover, .slick-next:focus {
+    outline: none;
+    background: transparent;
+    color: transparent; }
+    /* line 78, bower_components/slick-carousel/slick/slick-theme.scss */
+    .slick-prev:hover:before,
+    .slick-prev:focus:before,
+    .slick-next:hover:before, .slick-next:focus:before {
+      opacity: 1; }
+  /* line 82, bower_components/slick-carousel/slick/slick-theme.scss */
+  .slick-prev.slick-disabled:before,
+  .slick-next.slick-disabled:before {
+    opacity: 0.25; }
+
+/* line 87, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev:before, .slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 97, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev {
+  left: -25px; }
+  /* line 99, bower_components/slick-carousel/slick/slick-theme.scss */
+  [dir="rtl"] .slick-prev {
+    left: auto;
+    right: -25px; }
+  /* line 103, bower_components/slick-carousel/slick/slick-theme.scss */
+  .slick-prev:before {
+    content: "←"; }
+    /* line 105, bower_components/slick-carousel/slick/slick-theme.scss */
+    [dir="rtl"] .slick-prev:before {
+      content: "→"; }
+
+/* line 111, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-next {
+  right: -25px; }
+  /* line 113, bower_components/slick-carousel/slick/slick-theme.scss */
+  [dir="rtl"] .slick-next {
+    left: -25px;
+    right: auto; }
+  /* line 117, bower_components/slick-carousel/slick/slick-theme.scss */
+  .slick-next:before {
+    content: "→"; }
+    /* line 119, bower_components/slick-carousel/slick/slick-theme.scss */
+    [dir="rtl"] .slick-next:before {
+      content: "←"; }
+
+/* Dots */
+/* line 127, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-slider {
+  margin-bottom: 30px; }
+
+/* line 131, bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%; }
+  /* line 139, bower_components/slick-carousel/slick/slick-theme.scss */
+  .slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer; }
+    /* line 147, bower_components/slick-carousel/slick/slick-theme.scss */
+    .slick-dots li button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer; }
+      /* line 159, bower_components/slick-carousel/slick/slick-theme.scss */
+      .slick-dots li button:hover, .slick-dots li button:focus {
+        outline: none; }
+        /* line 161, bower_components/slick-carousel/slick/slick-theme.scss */
+        .slick-dots li button:hover:before, .slick-dots li button:focus:before {
+          opacity: 1; }
+      /* line 165, bower_components/slick-carousel/slick/slick-theme.scss */
+      .slick-dots li button:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "•";
+        width: 20px;
+        height: 20px;
+        font-family: "slick";
+        font-size: 6px;
+        line-height: 20px;
+        text-align: center;
+        color: black;
+        opacity: 0.25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; }
+    /* line 182, bower_components/slick-carousel/slick/slick-theme.scss */
+    .slick-dots li.slick-active button:before {
+      color: black;
+      opacity: 0.75; }
+
 /* line 1, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
 .basic-slider {
-  overflow: auto;
+  max-height: 600px;
+  overflow: hidden;
   position: relative; }
-  /* line 4, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+  /* line 5, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+  .basic-slider .slick-slide {
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important; }
+  /* line 11, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
   .basic-slider li {
     list-style: none; }
-  /* line 7, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+  /* line 14, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
   .basic-slider ul {
     margin: 0; }
-    /* line 9, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+    /* line 16, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
     .basic-slider ul li {
       float: left; }
-      /* line 11, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+      /* line 18, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
       .basic-slider ul li img {
         width: 100%; }
-      /* line 14, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
+      /* line 21, /Users/marcusrognes/Vagrant/www/wordpress-default/wp-content/themes/crafty/static/scss/parts/_basic-slider.scss */
       .basic-slider ul li h2 {
         position: absolute;
         bottom: 0;

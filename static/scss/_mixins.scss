@@ -12,3 +12,7 @@
   -o-transition: $property $duration $function;
   transition: $property $duration $function;
 }
+
+@function font-url($url) {
+  @return url('../fonts/' + $url);
+}

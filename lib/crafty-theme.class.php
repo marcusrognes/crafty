@@ -43,6 +43,7 @@ class Crafty_Theme {
 	}
 
 	public function add_image_sizes(){
+		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'banner-large', 1024, 140, true );
 		add_image_size( 'banner-medium', 512, 70, true );
 		add_image_size( 'banner-small', 256, 35, true );
