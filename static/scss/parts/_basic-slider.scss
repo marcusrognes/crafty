@@ -7,21 +7,19 @@
     -moz-background-size: cover !important;
     -o-background-size: cover !important;
     background-size: cover !important;
-  }
-  li{
-    list-style: none;
-  }
-  ul{
-    margin:0;
-    li{
-      float:left;
-      img{
-        width:100%;
-      }
-      h2{
-        position:absolute;
-        bottom:0;
-        left:0;
+    position:relative;
+    h2{
+      position:absolute;
+      bottom:20px;
+      left:20px;
+      color: #e3e3e3;
+      background:black;
+      background:rgba(0,0,0,0.7);
+      padding:25px;
+      margin:0;
+      a{
+        color:#e3e3e3;
+        text-decoration: none;
       }
     }
   }

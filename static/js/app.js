@@ -6450,7 +6450,7 @@
     };
 
     var crafty = new Crafty();
-    $('.basic-slider').height($('body').width() * 0.3);
+    $('.basic-slider').height($('body').width() * 0.23);
     $('.basic-slider').slick();
 
 })(jQuery, window, document);

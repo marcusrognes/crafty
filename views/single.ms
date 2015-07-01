@@ -11,14 +11,16 @@
             {{/image}}
         </header>
         <main class="row">
-            <h1>
-                {{post_title}}
-            </h1>
-            <h4>
-                Posted on: {{post_date}} | By: {{author.display_name}}
-            </h4>
-            <hr>
-            {{{post_content}}}
+            <div class="columns">
+                <h1>
+                    {{post_title}}
+                </h1>
+                <h4>
+                    Posted on: {{post_date}} | By: {{author.display_name}}
+                </h4>
+                <hr>
+                {{{post_content}}}
+            </div>
         </main>
         <footer class="row">
             <hr>
