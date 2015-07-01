@@ -2,7 +2,6 @@
 (function ($, window, document, undefined) {
 
     "use strict";
-
     var Crafty = function () {
         this.views = [];
         this.init = function () {
@@ -18,7 +17,6 @@
     };
 
     var crafty = new Crafty();
-    $('.basic-slider').height($('body').width() * 0.23);
-    $('.basic-slider').slick();
+    $('.basic-slider').height($('body').width() * 0.23).slick();
 
 })(jQuery, window, document);
